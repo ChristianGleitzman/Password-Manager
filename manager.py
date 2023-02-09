@@ -155,7 +155,7 @@ def encrypt_password(master_password, password_to_encrypt, salt):
         length=32,
         salt=salt,
         iterations=100000,
-        database=default_backend()
+        backend=default_backend()
     )
     key = base64.urlsafe_b64encode(kdf.derive(master_password.encode()))
     # Encrypt the password
@@ -171,7 +171,7 @@ def decrypt_password(master_password, encrypted_password, salt):
         length=32,
         salt=salt,
         iterations=100000,
-        database=default_backend()
+        backend=default_backend()
     )
     key = base64.urlsafe_b64encode(kdf.derive(master_password.encode()))
     # Decrypt the password
@@ -471,6 +471,9 @@ class MainMenu(QtWidgets.QMainWindow):
         for password in self.__cached_passwords:
             self.applications.append(password[0])
         self.completer = QtWidgets.QCompleter(self.applications)
+        self.completer.setCaseSensitivity(QtCore.Qt.CaseInsensitive)
+        self.completer.setFilterMode(QtCore.Qt.MatchContains)
+        self.completer.popup().setStyleSheet('font: 18pt "MS UI Gothic";')
         self.select_application_input.setCompleter(self.completer)
     #Allows the user to update a current password to a new password they have entered for a specific application
     def update_method(self):

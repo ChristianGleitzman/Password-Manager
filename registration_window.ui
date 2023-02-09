@@ -242,7 +242,7 @@ QProgressBar::chunk {
        <bool>false</bool>
       </property>
       <property name="format">
-       <string>Weak</string>
+       <string>Empty</string>
       </property>
      </widget>
     </item>

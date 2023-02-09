@@ -16,7 +16,9 @@ The program will prompt you to set a master password which will be used to encry
 
 ## Screenshots
 
-(Screenshots here)
+![Login](https://github.com/ChristianGleitzman/Password-Manager/blob/main/images/login.PNG)
+![Registration](https://github.com/ChristianGleitzman/Password-Manager/blob/main/images/registration.PNG)
+![Viewing Passwords](https://github.com/ChristianGleitzman/Password-Manager/blob/main/images/view_passwords.PNG)
 
 ## Improvements
 

@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_menu</class>
+ <widget class="QMainWindow" name="main_menu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>1000</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Main Menu</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background-color: rgb(0, 170, 127);
+}
+
+#window_title_label {
+	background-color: rgb(170, 255, 127);
+	border-width: 4px;
+	border-radius: 10px;
+	border-style: solid;
+	border-color: rgb(0, 255, 127);
+	min-width: 10em;
+	padding: 6px;
+	border-radius: 5px;
+}
+
+#error_label {
+	color: rgb(255, 0, 0);
+	font: 20pt &quot;MS UI Gothic&quot;;
+	text-decoration: underline;
+}
+
+QPushButton {
+	background-color: rgb(170, 255, 127);;
+	border-style: solid;
+	border-width: 4px;
+	border-radius: 10px;
+	border-color:  rgb(0, 255, 127);
+	min-width: 10em;
+	padding: 6px;
+}
+
+QPushButton:Hover {
+	background-color: rgb(85, 255, 0);
+	border-color: rgb(85, 170, 0);
+}
+
+QPushButton:pressed {
+	background-color: rgb(85, 255, 127);
+	border-color: rgb(85, 170, 0);
+}
+
+QLineEdit {
+	background-color: rgb(255,255,255);
+	border-radius: 5px
+}
+
+QProgressBar {
+     border: 2px solid black;
+     border-radius: 5px;
+     background-color: rgb(255, 255, 255);
+ }
+
+QProgressBar::chunk {
+     background-color: rgb(85, 255, 127);
+     width: 20%;
+ }
+
+QTabWidget::pane {
+	border: 4px solid rgb(0, 255, 127);
+	border-radius: 3px;
+  	top:-1px; 
+  	background-color: rgb(0, 170, 255);
+} 
+
+QTabBar::tab {
+	width: 250%;
+	height: 60%;
+	font: &quot;MS UI Gothic&quot; bold;
+  	background: rgb(170, 255, 127);; 
+  	border: 3px solid rgb(0, 255, 127);
+	border-radius: 3px;
+	padding: 20px;
+} 
+
+QTabBar::tab:selected { 
+  background: rgb(0, 255, 0);
+  margin-bottom: -1px; 
+}
+
+QTableView {
+	border-collapse: collapse;
+	border: 2px solid rgb(85, 255, 0);
+	border-radius: 2px;
+}
+
+QHeaderView::section {
+	font: 18pt &quot;MS UI Gothic&quot;;
+    background-color: rgb(170, 255, 127);
+    padding: 5px;
+    border-bottom: 2px solid rgb(85, 255, 0);
+    border-right: 2px solid rgb(85, 255, 0);
+}
+
+#outcome_label {
+	 color: rgb(170, 255, 127);
+}
+
+#update_outcome_label {
+	 color: rgb(170, 255, 127);
+}
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="window_title_label">
+      <property name="font">
+       <font>
+        <family>MS UI Gothic</family>
+        <pointsize>42</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Passord Manager</string>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="indent">
+       <number>-3</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <family>MS UI Gothic</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="view_passwords_tab">
+       <attribute name="title">
+        <string>View Passwords</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="view_passwords_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="text">
+           <string>View your passwords</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="filter_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Filter by application:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="filter_input">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableView" name="passwords_table">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::DefaultContextMenu</enum>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWidth">
+           <number>2</number>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="sortingEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderMinimumSectionSize">
+           <number>50</number>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="manage_passwords_tab">
+       <attribute name="title">
+        <string>Manage Passwords</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="select_application_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="text">
+           <string>Select an application to update or delete:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="select_application_input">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="updated_password_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Enter an updated secure password: (or generate one)</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="indent">
+           <number>-3</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="updated_password_input">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="updated_password_strength">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="textVisible">
+           <bool>true</bool>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+          <property name="format">
+           <string>Empty</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="confirm_updated_password_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Please confirm this password:</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="indent">
+           <number>-3</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="confirm_updated_password_input">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="update_outcome_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="delete_password_button">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Delete Password?</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="generate_updated_password_button">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Generate Password</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="clear_update_button">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="update_password_button">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Update Password</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="add_password_tab">
+       <attribute name="title">
+        <string>Add Password</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="password_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Please enter a secure password: (or generate one)</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="indent">
+           <number>-3</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="password_input">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QProgressBar" name="password_strength">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="textVisible">
+           <bool>true</bool>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+          <property name="format">
+           <string>Empty</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="confirm_password_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Please confirm this password:</string>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="indent">
+           <number>-3</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="confirm_password_input">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Normal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="application_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Please enter the application for this password:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="application_input">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="outcome_label">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>24</pointsize>
+            <underline>true</underline>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="generate_password_button">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Generate Password</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="clear_button">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="submit_button">
+          <property name="font">
+           <font>
+            <family>MS UI Gothic</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Submit</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

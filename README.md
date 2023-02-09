@@ -18,6 +18,10 @@ The program will prompt you to set a master password which will be used to encry
 
 (Screenshots here)
 
+## Improvements
+
+A possible improvement that could be made, which can be previewed in the registration process, is to have a master password hint. This password hint can then be sent to the email address entered by the user if they forget their master password.
+
 ## Disclaimer
 
 Use this program at your own risk. Remember to use a strong and unique master password and never share your passwords or the master password with anyone. The developer of this program is not responsible for any loss of data or unauthorized access to your passwords.

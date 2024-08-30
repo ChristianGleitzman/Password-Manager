@@ -1,13 +1,13 @@
 # Password-Manager
 
-This is a Python program that allows you to securely store and retrieve your passwords. It uses encryption to protect your sensitive information and has a user-friendly interface for adding, viewing, and editing your passwords.
+This is a Python program that allows you to securely store and retrieve your passwords. It uses encryption to protect your passwords and has a user-friendly interface for adding, viewing, and editing them.
 
 ## Features
 
 - Encrypts and decrypts the passwords using AES256 encryption, with a random salt and key derived from the user's master password for each password
 - Allows to store multiple passwords under the same account
 - Includes a login and registration system using salted and hashed passwords stored in a database
-- Generates random secure 
+- Generates random secure passwords
 - Decrypts and displays passwords for the user to view once logged in
 - Update, delete and filter functionality for the existing account passwords
 - User-friendly interface created using pyqt5 and QT designer

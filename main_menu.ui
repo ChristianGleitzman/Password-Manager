@@ -153,7 +153,7 @@ QHeaderView::section {
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>Passord Manager</string>
+       <string>Password Manager</string>
       </property>
       <property name="scaledContents">
        <bool>false</bool>

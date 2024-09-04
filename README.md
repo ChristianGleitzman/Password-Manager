@@ -5,7 +5,7 @@ This is a Python program that allows you to securely store and retrieve your pas
 ## Features
 
 - Encrypts and decrypts the passwords using AES256 encryption, with a random salt and key derived from the user's master password for each password
-- Allows to store multiple passwords under the same account
+- Allows the user to store multiple passwords under the same account
 - Includes a login and registration system using salted and hashed passwords stored in a database
 - Generates random secure passwords
 - Decrypts and displays passwords for the user to view once logged in

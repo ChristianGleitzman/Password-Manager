@@ -511,7 +511,7 @@ class MainMenu(QtWidgets.QMainWindow):
                     # ensure str types for Qt
                     if not isinstance(curr_decrypted, str):
                         curr_decrypted = str(curr_decrypted)
-                    self.__cached_passwords.append((app, curr_decrypted, lastupdate, strength))
+                    self.__cached_passwords.append((application, curr_decrypted, lastupdate, strength))
                 except Exception:
                     logging.exception("Failed to decrypt one row")
                     self.__cached_passwords.append((application, "<decrypt-error>", lastupdate, strength))

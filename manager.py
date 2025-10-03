@@ -1,18 +1,39 @@
 #Importing Libraries
-import os
+import sqlite3
+import faulthandler, traceback, logging, os, sys
+
+faulthandler.enable(all_threads=True)
+
+# Simple logging to a file
+log_file = os.path.join(os.path.dirname(__file__), 'pm_debug.log')
+logging.basicConfig(level=logging.DEBUG, filename=log_file, filemode='w',
+                    format='%(asctime)s %(levelname)s: %(message)s')
+logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
+
+#Logs uncaught exceptions
+def excepthook(type_, value, tb):
+    logging.error("Uncaught exception", exc_info=(type_, value, tb))
+    # print trace for faulthandler as well
+    faulthandler.dump_traceback(file=sys.stdout)
+    # still call default
+    sys.__excepthook__(type_, value, tb)
+
+sys.excepthook = excepthook
+logging.info("Debug instrumentation enabled")
+
 from PyQt5 import QtWidgets, uic, QtGui, QtCore
-import sys
 import re
 from validator_collection import checkers
 from random import choices
 import string
 import hashlib
 import base64
-from cryptography.fernet import Fernet
+from cryptography.fernet import Fernet, InvalidToken
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
+from sqlite3 import Binary
 from sqlite3 import *
 from datetime import date
 
@@ -78,22 +99,29 @@ class Database:
             hashed_master = hash_password(master_password, random_salt)
             query = '''INSERT INTO users(username, email, hashedMasterPassword, salt, hint)
             VALUES (?,?,?,?,?)'''
-            args = (username, email, hashed_master, random_salt, hint)
+            args = (username, email, sqlite3.Binary(hashed_master), sqlite3.Binary(random_salt), hint)
             self.__execute_statement(query, args)
             return True
         except:
             return False
     #Encrypts and saves a new password for a specific user to the database
     def save_new_password(self, plaintext, application, strength):
-        if self.__authenticate_transaction():
-            random_salt = os.urandom(16)
-            encrypted_password = encrypt_password(self.__currentMaster, plaintext, random_salt)
-            query = '''INSERT INTO passwords(encryptedPassword, salt, application, lastUpdate, strength, userID)
-            VALUES (?,?,?,?,?,?)'''
-            args = (encrypted_password, random_salt, application, date.today(), strength, self.__currentID)
-            self.__execute_statement(query, args)
-        else:
+        if not self.__authenticate_transaction():
             print('[Error] Transaction could not be authenticated')
+            return False
+        if not self.__currentMaster:
+            print('[Error] No master password available for encryption')
+            return False
+        
+        random_salt = os.urandom(16)
+        encrypted_password = encrypt_password(self.__currentMaster, plaintext, random_salt)
+        query = '''INSERT INTO passwords(encryptedPassword, salt, application, lastUpdate, strength, userID)
+        VALUES (?,?,?,?,?,?)'''
+        args = (
+        sqlite3.Binary(encrypted_password), sqlite3.Binary(random_salt), application, date.today(), strength, self.__currentID)
+        self.__execute_statement(query, args)
+        return True
+    
     #Fetches all the passwords of a specific user from the database
     def fetch_passwords(self):
         if self.__authenticate_transaction():
@@ -103,6 +131,7 @@ class Database:
             return passwords
         else:
             print('[Error] Transaction could not be authenticated')
+            
     #Verifies whether a specific application already exists for a specific user in the database
     def verify_application(self, application):
         if self.__authenticate_transaction():
@@ -115,6 +144,7 @@ class Database:
                 return True
         else:
             print('[Error] Transaction could not be authenticated')
+            
     #Updates an existing password to a new password for a specific application
     def update_password(self, application, plaintext, strength):
         if self.__authenticate_transaction():
@@ -127,6 +157,7 @@ class Database:
             return True
         else:
             print('[Error] Transaction could not be authenticated')
+            
     #Deletes a password for a specific application and user from the database
     def delete_password(self, application):
         if self.__authenticate_transaction():
@@ -151,7 +182,7 @@ def hash_password(password: str, salt):
 #Encrypts a password using a key derived from the master password and a random salt
 def encrypt_password(master_password, password_to_encrypt, salt):
     kdf = PBKDF2HMAC(
-        algorithm=hashes.SHA256,
+        algorithm=hashes.SHA256(),
         length=32,
         salt=salt,
         iterations=100000,
@@ -166,19 +197,26 @@ def encrypt_password(master_password, password_to_encrypt, salt):
 
 #Decrypts a password using the key derived from the master password and the stored salt
 def decrypt_password(master_password, encrypted_password, salt):
-    kdf = PBKDF2HMAC(
-        algorithm=hashes.SHA256,
-        length=32,
-        salt=salt,
-        iterations=100000,
-        backend=default_backend()
-    )
-    key = base64.urlsafe_b64encode(kdf.derive(master_password.encode()))
-    # Decrypt the password
-    cipher = Fernet(key)
-    decrypted_password = cipher.decrypt(encrypted_password).decode()
+    try:
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA256(),
+            length=32,
+            salt=salt,
+            iterations=100000,
+            backend=default_backend()
+        )
+        key = base64.urlsafe_b64encode(kdf.derive(master_password.encode()))
+        # Decrypt the password
+        cipher = Fernet(key)
+        decrypted_password = cipher.decrypt(encrypted_password).decode()
 
-    return decrypted_password
+        return decrypted_password
+    except InvalidToken:
+        logging.exception("InvalidToken during decrypt - wrong master password or corrupted data")
+        return "<decrypt-error>"
+    except Exception:
+        logging.exception("Unexpected error during decrypt")
+        return "<decrypt-error>"
 
 #Calculates the strength of the password based on numbers, symbols, length etc. and returns it
 def calculate_strength(password):
@@ -206,15 +244,28 @@ class TableModel(QtCore.QAbstractTableModel):
         self._data = data
         self.colors = ['#e5f5f9', '#ccece6', '#99d8c9', '#66c2a4', '#41ae76', '#238b45']
         self.header_labels = ['Application', 'Password', 'Last Update', 'Strength']
+        
     #Adds the data to the model
     def data(self, index, role):
+        if not index.isValid():
+            return None
+        value = self._data[index.row()][index.column()]
         if role == QtCore.Qt.DisplayRole:
-            return self._data[index.row()][index.column()]
+            if isinstance(value, (bytes, bytearray)):
+                try:
+                    return value.decode('utf-8', errors='replace')
+                except Exception:
+                    return str(value)
+            return value
         if role == QtCore.Qt.DecorationRole:
-            value = self._data[index.row()][index.column()]
-            if (isinstance(value, int) or isinstance(value, float)):
-                value = int(value)
-                return QtGui.QColor(self.colors[value])
+            if index.column() == 3:
+                try:
+                    val = int(self._data[index.row()][index.column()])
+                    if 0 <= val < len(self.colors):
+                        return QtGui.QColor(self.colors[val])
+                except Exception:
+                    return None
+        return None
 
     def rowCount(self, index):
         #The length of the outer list.
@@ -382,6 +433,8 @@ class Login(QtWidgets.QMainWindow):
             successful_authentication = database.authenticate_user(entered_username, entered_password)
             if successful_authentication:
                 self.close()
+                self.main_menu = MainMenu()
+                self.main_menu.show()
             else:
                 #Informs the user that the login attempt was unsuccessful
                 self.clear_method()
@@ -411,7 +464,7 @@ class MainMenu(QtWidgets.QMainWindow):
         self.filter_proxy_model = QtCore.QSortFilterProxyModel()
         #Filters the table based on application entered
         self.filter_proxy_model.setFilterKeyColumn(0)
-        #Filtering is case insensitive
+        #Filtering is case-insensitive
         self.filter_proxy_model.setFilterCaseSensitivity(QtCore.Qt.CaseInsensitive)
         #Filters the table whenever change in the input field is detected
         self.filter_input.textChanged.connect(self.filter_proxy_model.setFilterRegExp)
@@ -448,12 +501,25 @@ class MainMenu(QtWidgets.QMainWindow):
     
     #Fetches and decrypted all passwords pertaining to a specific user from the database and formats them for the table
     def decrypt_user_passwords(self):
-        encrypted_passwords = database.fetch_passwords()
-        self.__cached_passwords = []
-        for encrypted_password in encrypted_passwords:
-            curr_decrypted = decrypt_password(database.get_master_password(), encrypted_password[0], encrypted_password[1])
-            self.__cached_passwords.append((encrypted_password[2], curr_decrypted, encrypted_password[3], encrypted_password[4]))
-    #If changes have been made to the currently displayed table, the table is updated with the most up to date passwords
+        try:
+            encrypted_passwords = database.fetch_passwords()
+            self.__cached_passwords = []
+            for row in encrypted_passwords:
+                try:
+                    enc_pwd, salt, application, lastupdate, strength = row
+                    curr_decrypted = decrypt_password(database.get_master_password(), enc_pwd, salt)
+                    # ensure str types for Qt
+                    if not isinstance(curr_decrypted, str):
+                        curr_decrypted = str(curr_decrypted)
+                    self.__cached_passwords.append((app, curr_decrypted, lastupdate, strength))
+                except Exception:
+                    logging.exception("Failed to decrypt one row")
+                    self.__cached_passwords.append((application, "<decrypt-error>", lastupdate, strength))
+        except Exception:
+            logging.exception("Failed to fetch passwords")
+            self.__cached_passwords = []
+
+    #If changes have been made to the currently displayed table, the table is updated with the most up-to-date passwords
     def view_passwords_method(self):
         if self.__unresolved_update:
             self.decrypt_user_passwords()
@@ -465,6 +531,7 @@ class MainMenu(QtWidgets.QMainWindow):
                 self.passwords_table.setModel(self.filter_proxy_model)
                 self.passwords_table.horizontalHeader().setVisible(True)
                 self.__unresolved_update = False
+
     #Sets up the manage passwords tab by adding all current applications to the application input autocompleter
     def manage_passwords_setup(self):
         self.applications = []
@@ -475,6 +542,7 @@ class MainMenu(QtWidgets.QMainWindow):
         self.completer.setFilterMode(QtCore.Qt.MatchContains)
         self.completer.popup().setStyleSheet('font: 18pt "MS UI Gothic";')
         self.select_application_input.setCompleter(self.completer)
+
     #Allows the user to update a current password to a new password they have entered for a specific application
     def update_method(self):
         entered_application = self.select_application_input.text()
@@ -498,7 +566,8 @@ class MainMenu(QtWidgets.QMainWindow):
             self.__unresolved_update = True
         else:
             #The user is informed that the application they entered does not have a matching password in the database
-            self.outcome_label.setText('A password matching this application does not exist!')          
+            self.outcome_label.setText('A password matching this application does not exist!')
+
     #Allows the user to delete a password for a specific application
     def delete_method(self):
         entered_application = self.select_application_input.text()
@@ -515,26 +584,29 @@ class MainMenu(QtWidgets.QMainWindow):
         else:
             #The user is informed that the application they entered does not have a matching password in the database
             self.update_outcome_label.setText('A password matching this application does not exist!')
+
     #Clears the current contents of the manage password input fields
     def clear_update_method(self):
         self.select_application_input.setText('')
         self.updated_password_input.setText('')
         self.confirm_updated_password_input.setText('')
         self.update_outcome_label.setText('')
+
     #Generates an updated password and adds this to the update password entry fields
     def generate_updated_password_method(self):
         generated_password = generate_password(16)
         self.updated_password_input.setText(generated_password)
         self.confirm_updated_password_input.setText(generated_password)
+
     #Allows the user to save a new password for a new application to the database
     def submit_method(self):
         entered_password = self.password_input.text()
-        entered_confrimed_password = self.confirm_password_input.text()
+        entered_confirmed_password = self.confirm_password_input.text()
         entered_application = self.application_input.text()
-        if entered_password == '' or entered_confrimed_password == '' or entered_application == '':
+        if entered_password == '' or entered_confirmed_password == '' or entered_application == '':
             #Informs the user that they have left fields blank
             self.outcome_label.setText('Please do not leave any fields blank!')
-        elif entered_password != entered_confrimed_password:
+        elif entered_password != entered_confirmed_password:
             #Informs the user the confirmed password does not match
             self.outcome_label.setText('The confirmed password does not match!')
         elif calculate_strength(entered_password) <= 2:
@@ -550,12 +622,14 @@ class MainMenu(QtWidgets.QMainWindow):
             #Informs the user that the new password has been saved
             self.outcome_label.setText('New password saved successfully!')
             self.__unresolved_update = True
+
     #Clears the current contents of the new password input fields
     def clear_method(self):
         self.outcome_label.setText('')
         self.password_input.setText('')
         self.application_input.setText('')
         self.confirm_password_input.setText('')
+
     #Generates a password and adds this to the new password entry fields
     def generate_method(self):
         generated_password = generate_password(16)
@@ -565,11 +639,8 @@ class MainMenu(QtWidgets.QMainWindow):
 if __name__ == "__main__":
     #Initialises and displays start window
     app = QtWidgets.QApplication(sys.argv)
-    start_window = Startup()
-    #Creates an instance of the database class
+    # Creates an instance of the database class
     database = Database()
+
+    start_window = Startup()
     app.exec()
-    #Initialises and displays the main menu if a user has been logged in
-    if database.get_id() != None:
-        main_menu = MainMenu()
-        app.exec()

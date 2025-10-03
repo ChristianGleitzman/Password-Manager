@@ -1,0 +1,345 @@
+2025-10-03 16:32:13,215 INFO: Debug instrumentation enabled
+2025-10-03 16:32:13,795 DEBUG: uiname is MainWindow
+2025-10-03 16:32:13,795 DEBUG: toplevel widget is Startup
+2025-10-03 16:32:13,795 DEBUG: setting property geometry
+2025-10-03 16:32:13,796 DEBUG: setting property minimumSize
+2025-10-03 16:32:13,796 DEBUG: setting property windowTitle
+2025-10-03 16:32:13,796 DEBUG: setting property styleSheet
+2025-10-03 16:32:13,797 DEBUG: push Startup MainWindow
+2025-10-03 16:32:13,797 DEBUG: push QWidget centralwidget
+2025-10-03 16:32:13,798 DEBUG: setting property spacing
+2025-10-03 16:32:13,798 DEBUG: setting property leftMargin
+2025-10-03 16:32:13,798 DEBUG: setting property topMargin
+2025-10-03 16:32:13,799 DEBUG: setting property rightMargin
+2025-10-03 16:32:13,799 DEBUG: setting property bottomMargin
+2025-10-03 16:32:13,799 DEBUG: setting property pyuicMargins
+2025-10-03 16:32:13,799 DEBUG: setting property pyuicSpacing
+2025-10-03 16:32:13,799 DEBUG: push QVBoxLayout verticalLayout
+2025-10-03 16:32:13,800 DEBUG: setting property font
+2025-10-03 16:32:13,801 DEBUG: setting property text
+2025-10-03 16:32:13,801 DEBUG: setting property alignment
+2025-10-03 16:32:13,801 DEBUG: push QLabel window_title_label
+2025-10-03 16:32:13,801 DEBUG: pop widget QLabel window_title_label
+2025-10-03 16:32:13,802 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D773D10>
+2025-10-03 16:32:13,809 DEBUG: setting property font
+2025-10-03 16:32:13,809 DEBUG: setting property text
+2025-10-03 16:32:13,810 DEBUG: push QPushButton login_button
+2025-10-03 16:32:13,810 DEBUG: pop widget QPushButton login_button
+2025-10-03 16:32:13,810 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D773D10>
+2025-10-03 16:32:13,810 DEBUG: setting property font
+2025-10-03 16:32:13,811 DEBUG: setting property text
+2025-10-03 16:32:13,811 DEBUG: push QPushButton register_button
+2025-10-03 16:32:13,811 DEBUG: pop widget QPushButton register_button
+2025-10-03 16:32:13,811 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D773D10>
+2025-10-03 16:32:13,811 DEBUG: setting property font
+2025-10-03 16:32:13,812 DEBUG: setting property text
+2025-10-03 16:32:13,812 DEBUG: push QPushButton exit_button
+2025-10-03 16:32:13,812 DEBUG: pop widget QPushButton exit_button
+2025-10-03 16:32:13,812 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D773D10>
+2025-10-03 16:32:13,812 DEBUG: pop layout QVBoxLayout verticalLayout
+2025-10-03 16:32:13,812 DEBUG: pop widget QWidget centralwidget
+2025-10-03 16:32:13,812 DEBUG: new topwidget <__main__.Startup object at 0x000002D27D773800>
+2025-10-03 16:32:13,812 DEBUG: pop widget Startup MainWindow
+2025-10-03 16:32:13,812 DEBUG: new topwidget None
+2025-10-03 16:32:15,642 DEBUG: uiname is LoginWindow
+2025-10-03 16:32:15,642 DEBUG: toplevel widget is Login
+2025-10-03 16:32:15,642 DEBUG: setting property geometry
+2025-10-03 16:32:15,642 DEBUG: setting property minimumSize
+2025-10-03 16:32:15,642 DEBUG: setting property windowTitle
+2025-10-03 16:32:15,642 DEBUG: setting property styleSheet
+2025-10-03 16:32:15,643 DEBUG: push Login LoginWindow
+2025-10-03 16:32:15,643 DEBUG: push QWidget centralwidget
+2025-10-03 16:32:15,643 DEBUG: setting property spacing
+2025-10-03 16:32:15,643 DEBUG: setting property leftMargin
+2025-10-03 16:32:15,643 DEBUG: setting property topMargin
+2025-10-03 16:32:15,644 DEBUG: setting property rightMargin
+2025-10-03 16:32:15,644 DEBUG: setting property bottomMargin
+2025-10-03 16:32:15,644 DEBUG: setting property pyuicMargins
+2025-10-03 16:32:15,644 DEBUG: setting property pyuicSpacing
+2025-10-03 16:32:15,644 DEBUG: push QVBoxLayout verticalLayout
+2025-10-03 16:32:15,644 DEBUG: setting property font
+2025-10-03 16:32:15,644 DEBUG: setting property styleSheet
+2025-10-03 16:32:15,644 DEBUG: setting property text
+2025-10-03 16:32:15,646 DEBUG: setting property scaledContents
+2025-10-03 16:32:15,646 DEBUG: setting property alignment
+2025-10-03 16:32:15,646 DEBUG: setting property indent
+2025-10-03 16:32:15,647 DEBUG: push QLabel window_title_label
+2025-10-03 16:32:15,647 DEBUG: pop widget QLabel window_title_label
+2025-10-03 16:32:15,647 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,647 DEBUG: setting property font
+2025-10-03 16:32:15,648 DEBUG: setting property styleSheet
+2025-10-03 16:32:15,648 DEBUG: setting property text
+2025-10-03 16:32:15,648 DEBUG: setting property scaledContents
+2025-10-03 16:32:15,648 DEBUG: setting property indent
+2025-10-03 16:32:15,648 DEBUG: push QLabel username_label
+2025-10-03 16:32:15,648 DEBUG: pop widget QLabel username_label
+2025-10-03 16:32:15,648 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,649 DEBUG: setting property font
+2025-10-03 16:32:15,649 DEBUG: push QLineEdit username_input
+2025-10-03 16:32:15,649 DEBUG: pop widget QLineEdit username_input
+2025-10-03 16:32:15,649 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,649 DEBUG: setting property font
+2025-10-03 16:32:15,650 DEBUG: setting property styleSheet
+2025-10-03 16:32:15,650 DEBUG: setting property text
+2025-10-03 16:32:15,650 DEBUG: setting property scaledContents
+2025-10-03 16:32:15,650 DEBUG: setting property indent
+2025-10-03 16:32:15,650 DEBUG: push QLabel password_label
+2025-10-03 16:32:15,650 DEBUG: pop widget QLabel password_label
+2025-10-03 16:32:15,650 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,652 DEBUG: setting property font
+2025-10-03 16:32:15,652 DEBUG: setting property echoMode
+2025-10-03 16:32:15,652 DEBUG: push QLineEdit password_input
+2025-10-03 16:32:15,652 DEBUG: pop widget QLineEdit password_input
+2025-10-03 16:32:15,652 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,652 DEBUG: setting property text
+2025-10-03 16:32:15,652 DEBUG: push QLabel error_label
+2025-10-03 16:32:15,652 DEBUG: pop widget QLabel error_label
+2025-10-03 16:32:15,653 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,653 DEBUG: setting property font
+2025-10-03 16:32:15,653 DEBUG: setting property cursor
+2025-10-03 16:32:15,653 DEBUG: setting property styleSheet
+2025-10-03 16:32:15,653 DEBUG: setting property text
+2025-10-03 16:32:15,654 DEBUG: push QPushButton submit_button
+2025-10-03 16:32:15,654 DEBUG: pop widget QPushButton submit_button
+2025-10-03 16:32:15,654 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,654 DEBUG: setting property font
+2025-10-03 16:32:15,654 DEBUG: setting property cursor
+2025-10-03 16:32:15,654 DEBUG: setting property text
+2025-10-03 16:32:15,655 DEBUG: push QPushButton clear_button
+2025-10-03 16:32:15,655 DEBUG: pop widget QPushButton clear_button
+2025-10-03 16:32:15,655 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,655 DEBUG: setting property font
+2025-10-03 16:32:15,655 DEBUG: setting property cursor
+2025-10-03 16:32:15,656 DEBUG: setting property text
+2025-10-03 16:32:15,656 DEBUG: push QPushButton back_button
+2025-10-03 16:32:15,656 DEBUG: pop widget QPushButton back_button
+2025-10-03 16:32:15,656 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C320>
+2025-10-03 16:32:15,656 DEBUG: pop layout QVBoxLayout verticalLayout
+2025-10-03 16:32:15,656 DEBUG: pop widget QWidget centralwidget
+2025-10-03 16:32:15,656 DEBUG: new topwidget <__main__.Login object at 0x000002D27D95C290>
+2025-10-03 16:32:15,656 DEBUG: pop widget Login LoginWindow
+2025-10-03 16:32:15,657 DEBUG: new topwidget None
+2025-10-03 16:32:29,348 DEBUG: uiname is main_menu
+2025-10-03 16:32:29,349 DEBUG: toplevel widget is MainMenu
+2025-10-03 16:32:29,349 DEBUG: setting property geometry
+2025-10-03 16:32:29,349 DEBUG: setting property minimumSize
+2025-10-03 16:32:29,349 DEBUG: setting property windowTitle
+2025-10-03 16:32:29,349 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,362 DEBUG: push MainMenu main_menu
+2025-10-03 16:32:29,362 DEBUG: push QWidget centralwidget
+2025-10-03 16:32:29,363 DEBUG: setting property spacing
+2025-10-03 16:32:29,363 DEBUG: setting property leftMargin
+2025-10-03 16:32:29,364 DEBUG: setting property topMargin
+2025-10-03 16:32:29,364 DEBUG: setting property rightMargin
+2025-10-03 16:32:29,364 DEBUG: setting property bottomMargin
+2025-10-03 16:32:29,364 DEBUG: setting property pyuicMargins
+2025-10-03 16:32:29,364 DEBUG: setting property pyuicSpacing
+2025-10-03 16:32:29,364 DEBUG: push QVBoxLayout verticalLayout
+2025-10-03 16:32:29,365 DEBUG: setting property font
+2025-10-03 16:32:29,365 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,365 DEBUG: setting property text
+2025-10-03 16:32:29,367 DEBUG: setting property scaledContents
+2025-10-03 16:32:29,367 DEBUG: setting property alignment
+2025-10-03 16:32:29,367 DEBUG: setting property indent
+2025-10-03 16:32:29,368 DEBUG: push QLabel window_title_label
+2025-10-03 16:32:29,368 DEBUG: pop widget QLabel window_title_label
+2025-10-03 16:32:29,368 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C440>
+2025-10-03 16:32:29,370 DEBUG: setting property font
+2025-10-03 16:32:29,371 DEBUG: setting property tabShape
+2025-10-03 16:32:29,371 DEBUG: setting property currentIndex
+2025-10-03 16:32:29,371 DEBUG: push QTabWidget tabWidget
+2025-10-03 16:32:29,371 DEBUG: push QWidget view_passwords_tab
+2025-10-03 16:32:29,372 DEBUG: setting property spacing
+2025-10-03 16:32:29,372 DEBUG: setting property pyuicSpacing
+2025-10-03 16:32:29,372 DEBUG: push QVBoxLayout verticalLayout_2
+2025-10-03 16:32:29,372 DEBUG: setting property font
+2025-10-03 16:32:29,373 DEBUG: setting property text
+2025-10-03 16:32:29,374 DEBUG: push QLabel view_passwords_label
+2025-10-03 16:32:29,374 DEBUG: pop widget QLabel view_passwords_label
+2025-10-03 16:32:29,374 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95CCB0>
+2025-10-03 16:32:29,374 DEBUG: setting property font
+2025-10-03 16:32:29,375 DEBUG: setting property text
+2025-10-03 16:32:29,376 DEBUG: push QLabel filter_label
+2025-10-03 16:32:29,376 DEBUG: pop widget QLabel filter_label
+2025-10-03 16:32:29,376 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95CCB0>
+2025-10-03 16:32:29,376 DEBUG: setting property font
+2025-10-03 16:32:29,379 DEBUG: push QLineEdit filter_input
+2025-10-03 16:32:29,379 DEBUG: pop widget QLineEdit filter_input
+2025-10-03 16:32:29,379 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95CCB0>
+2025-10-03 16:32:29,387 DEBUG: setting property font
+2025-10-03 16:32:29,389 DEBUG: setting property contextMenuPolicy
+2025-10-03 16:32:29,389 DEBUG: setting property layoutDirection
+2025-10-03 16:32:29,389 DEBUG: setting property frameShape
+2025-10-03 16:32:29,390 DEBUG: setting property frameShadow
+2025-10-03 16:32:29,390 DEBUG: setting property lineWidth
+2025-10-03 16:32:29,390 DEBUG: setting property sizeAdjustPolicy
+2025-10-03 16:32:29,390 DEBUG: setting property editTriggers
+2025-10-03 16:32:29,390 DEBUG: setting property sortingEnabled
+2025-10-03 16:32:29,391 DEBUG: setting property wordWrap
+2025-10-03 16:32:29,391 DEBUG: push QTableView passwords_table
+2025-10-03 16:32:29,391 DEBUG: pop widget QTableView passwords_table
+2025-10-03 16:32:29,391 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95CCB0>
+2025-10-03 16:32:29,392 DEBUG: pop layout QVBoxLayout verticalLayout_2
+2025-10-03 16:32:29,393 DEBUG: pop widget QWidget view_passwords_tab
+2025-10-03 16:32:29,393 DEBUG: new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002D27D95CB00>
+2025-10-03 16:32:29,406 DEBUG: push QWidget manage_passwords_tab
+2025-10-03 16:32:29,406 DEBUG: push QVBoxLayout verticalLayout_4
+2025-10-03 16:32:29,406 DEBUG: setting property font
+2025-10-03 16:32:29,406 DEBUG: setting property text
+2025-10-03 16:32:29,407 DEBUG: push QLabel select_application_label
+2025-10-03 16:32:29,407 DEBUG: pop widget QLabel select_application_label
+2025-10-03 16:32:29,408 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,408 DEBUG: setting property font
+2025-10-03 16:32:29,408 DEBUG: push QLineEdit select_application_input
+2025-10-03 16:32:29,408 DEBUG: pop widget QLineEdit select_application_input
+2025-10-03 16:32:29,408 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,408 DEBUG: setting property font
+2025-10-03 16:32:29,409 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,409 DEBUG: setting property text
+2025-10-03 16:32:29,410 DEBUG: setting property scaledContents
+2025-10-03 16:32:29,410 DEBUG: setting property indent
+2025-10-03 16:32:29,410 DEBUG: push QLabel updated_password_label
+2025-10-03 16:32:29,410 DEBUG: pop widget QLabel updated_password_label
+2025-10-03 16:32:29,410 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,411 DEBUG: setting property font
+2025-10-03 16:32:29,411 DEBUG: push QLineEdit updated_password_input
+2025-10-03 16:32:29,411 DEBUG: pop widget QLineEdit updated_password_input
+2025-10-03 16:32:29,411 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,412 DEBUG: setting property font
+2025-10-03 16:32:29,412 DEBUG: setting property value
+2025-10-03 16:32:29,412 DEBUG: setting property alignment
+2025-10-03 16:32:29,412 DEBUG: setting property textVisible
+2025-10-03 16:32:29,412 DEBUG: setting property invertedAppearance
+2025-10-03 16:32:29,412 DEBUG: setting property format
+2025-10-03 16:32:29,412 DEBUG: push QProgressBar updated_password_strength
+2025-10-03 16:32:29,412 DEBUG: pop widget QProgressBar updated_password_strength
+2025-10-03 16:32:29,413 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,413 DEBUG: setting property font
+2025-10-03 16:32:29,413 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,413 DEBUG: setting property text
+2025-10-03 16:32:29,414 DEBUG: setting property scaledContents
+2025-10-03 16:32:29,414 DEBUG: setting property indent
+2025-10-03 16:32:29,414 DEBUG: push QLabel confirm_updated_password_label
+2025-10-03 16:32:29,414 DEBUG: pop widget QLabel confirm_updated_password_label
+2025-10-03 16:32:29,414 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,414 DEBUG: setting property font
+2025-10-03 16:32:29,414 DEBUG: push QLineEdit confirm_updated_password_input
+2025-10-03 16:32:29,414 DEBUG: pop widget QLineEdit confirm_updated_password_input
+2025-10-03 16:32:29,414 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,416 DEBUG: setting property font
+2025-10-03 16:32:29,416 DEBUG: setting property text
+2025-10-03 16:32:29,416 DEBUG: push QLabel update_outcome_label
+2025-10-03 16:32:29,416 DEBUG: pop widget QLabel update_outcome_label
+2025-10-03 16:32:29,416 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,416 DEBUG: setting property font
+2025-10-03 16:32:29,416 DEBUG: setting property cursor
+2025-10-03 16:32:29,417 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,417 DEBUG: setting property text
+2025-10-03 16:32:29,418 DEBUG: push QPushButton delete_password_button
+2025-10-03 16:32:29,418 DEBUG: pop widget QPushButton delete_password_button
+2025-10-03 16:32:29,418 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,418 DEBUG: setting property font
+2025-10-03 16:32:29,418 DEBUG: setting property cursor
+2025-10-03 16:32:29,419 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,419 DEBUG: setting property text
+2025-10-03 16:32:29,420 DEBUG: push QPushButton generate_updated_password_button
+2025-10-03 16:32:29,420 DEBUG: pop widget QPushButton generate_updated_password_button
+2025-10-03 16:32:29,421 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,421 DEBUG: setting property font
+2025-10-03 16:32:29,421 DEBUG: setting property cursor
+2025-10-03 16:32:29,421 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,422 DEBUG: setting property text
+2025-10-03 16:32:29,423 DEBUG: push QPushButton clear_update_button
+2025-10-03 16:32:29,423 DEBUG: pop widget QPushButton clear_update_button
+2025-10-03 16:32:29,423 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,423 DEBUG: setting property font
+2025-10-03 16:32:29,423 DEBUG: setting property cursor
+2025-10-03 16:32:29,424 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,424 DEBUG: setting property text
+2025-10-03 16:32:29,424 DEBUG: push QPushButton update_password_button
+2025-10-03 16:32:29,424 DEBUG: pop widget QPushButton update_password_button
+2025-10-03 16:32:29,424 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D010>
+2025-10-03 16:32:29,425 DEBUG: pop layout QVBoxLayout verticalLayout_4
+2025-10-03 16:32:29,425 DEBUG: pop widget QWidget manage_passwords_tab
+2025-10-03 16:32:29,425 DEBUG: new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002D27D95CB00>
+2025-10-03 16:32:29,426 DEBUG: push QWidget add_password_tab
+2025-10-03 16:32:29,426 DEBUG: push QVBoxLayout verticalLayout_3
+2025-10-03 16:32:29,426 DEBUG: setting property font
+2025-10-03 16:32:29,426 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,426 DEBUG: setting property text
+2025-10-03 16:32:29,427 DEBUG: setting property scaledContents
+2025-10-03 16:32:29,427 DEBUG: setting property indent
+2025-10-03 16:32:29,427 DEBUG: push QLabel password_label
+2025-10-03 16:32:29,428 DEBUG: pop widget QLabel password_label
+2025-10-03 16:32:29,428 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,428 DEBUG: setting property font
+2025-10-03 16:32:29,428 DEBUG: setting property echoMode
+2025-10-03 16:32:29,428 DEBUG: push QLineEdit password_input
+2025-10-03 16:32:29,428 DEBUG: pop widget QLineEdit password_input
+2025-10-03 16:32:29,429 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,429 DEBUG: setting property font
+2025-10-03 16:32:29,429 DEBUG: setting property value
+2025-10-03 16:32:29,429 DEBUG: setting property alignment
+2025-10-03 16:32:29,429 DEBUG: setting property textVisible
+2025-10-03 16:32:29,429 DEBUG: setting property invertedAppearance
+2025-10-03 16:32:29,429 DEBUG: setting property format
+2025-10-03 16:32:29,429 DEBUG: push QProgressBar password_strength
+2025-10-03 16:32:29,430 DEBUG: pop widget QProgressBar password_strength
+2025-10-03 16:32:29,430 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,430 DEBUG: setting property font
+2025-10-03 16:32:29,430 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,430 DEBUG: setting property text
+2025-10-03 16:32:29,431 DEBUG: setting property scaledContents
+2025-10-03 16:32:29,431 DEBUG: setting property indent
+2025-10-03 16:32:29,431 DEBUG: push QLabel confirm_password_label
+2025-10-03 16:32:29,431 DEBUG: pop widget QLabel confirm_password_label
+2025-10-03 16:32:29,431 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,431 DEBUG: setting property font
+2025-10-03 16:32:29,431 DEBUG: setting property echoMode
+2025-10-03 16:32:29,432 DEBUG: push QLineEdit confirm_password_input
+2025-10-03 16:32:29,432 DEBUG: pop widget QLineEdit confirm_password_input
+2025-10-03 16:32:29,432 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,432 DEBUG: setting property font
+2025-10-03 16:32:29,432 DEBUG: setting property text
+2025-10-03 16:32:29,433 DEBUG: push QLabel application_label
+2025-10-03 16:32:29,433 DEBUG: pop widget QLabel application_label
+2025-10-03 16:32:29,433 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,433 DEBUG: setting property font
+2025-10-03 16:32:29,433 DEBUG: push QLineEdit application_input
+2025-10-03 16:32:29,434 DEBUG: pop widget QLineEdit application_input
+2025-10-03 16:32:29,434 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,434 DEBUG: setting property font
+2025-10-03 16:32:29,434 DEBUG: setting property text
+2025-10-03 16:32:29,434 DEBUG: push QLabel outcome_label
+2025-10-03 16:32:29,434 DEBUG: pop widget QLabel outcome_label
+2025-10-03 16:32:29,435 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,435 DEBUG: setting property font
+2025-10-03 16:32:29,435 DEBUG: setting property cursor
+2025-10-03 16:32:29,435 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,435 DEBUG: setting property text
+2025-10-03 16:32:29,436 DEBUG: push QPushButton generate_password_button
+2025-10-03 16:32:29,436 DEBUG: pop widget QPushButton generate_password_button
+2025-10-03 16:32:29,436 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,436 DEBUG: setting property font
+2025-10-03 16:32:29,436 DEBUG: setting property cursor
+2025-10-03 16:32:29,436 DEBUG: setting property text
+2025-10-03 16:32:29,437 DEBUG: push QPushButton clear_button
+2025-10-03 16:32:29,437 DEBUG: pop widget QPushButton clear_button
+2025-10-03 16:32:29,437 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,437 DEBUG: setting property font
+2025-10-03 16:32:29,438 DEBUG: setting property cursor
+2025-10-03 16:32:29,438 DEBUG: setting property styleSheet
+2025-10-03 16:32:29,438 DEBUG: setting property text
+2025-10-03 16:32:29,439 DEBUG: push QPushButton submit_button
+2025-10-03 16:32:29,439 DEBUG: pop widget QPushButton submit_button
+2025-10-03 16:32:29,439 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95D7F0>
+2025-10-03 16:32:29,439 DEBUG: pop layout QVBoxLayout verticalLayout_3
+2025-10-03 16:32:29,439 DEBUG: pop widget QWidget add_password_tab
+2025-10-03 16:32:29,439 DEBUG: new topwidget <PyQt5.QtWidgets.QTabWidget object at 0x000002D27D95CB00>
+2025-10-03 16:32:29,441 DEBUG: pop widget QTabWidget tabWidget
+2025-10-03 16:32:29,441 DEBUG: new topwidget <PyQt5.QtWidgets.QWidget object at 0x000002D27D95C440>
+2025-10-03 16:32:29,441 DEBUG: pop layout QVBoxLayout verticalLayout
+2025-10-03 16:32:29,441 DEBUG: pop widget QWidget centralwidget
+2025-10-03 16:32:29,441 DEBUG: new topwidget <__main__.MainMenu object at 0x000002D27D95C950>
+2025-10-03 16:32:29,441 DEBUG: pop widget MainMenu main_menu
+2025-10-03 16:32:29,441 DEBUG: new topwidget None

@@ -24,7 +24,7 @@ logging.info("Debug instrumentation enabled")
 from PyQt5 import QtWidgets, uic, QtGui, QtCore
 import re
 from validator_collection import checkers
-from random import choices
+from secrets import choice
 import string
 import hashlib
 import base64
@@ -235,7 +235,8 @@ def calculate_strength(password):
 
 #Generates a random password based on a given length
 def generate_password(length):
-    password = ''.join(choices(string.ascii_letters + string.digits + string.punctuation, k=length))
+    characters = string.ascii_letters + string.digits + "!@#$%^&*()-_=+[]{};:,.?"
+    password = ''.join(choice(characters) for i in range(length))
     return password
 
 class TableModel(QtCore.QAbstractTableModel):
@@ -553,10 +554,10 @@ class MainMenu(QtWidgets.QMainWindow):
             self.update_outcome_label.setText('Please do not leave any fields blank!')
         elif updated_password != confirmed_updated_password:
             #Informs the user the confirmed password does not match
-            self.outcome_label.setText('The confirmed password does not match!')
+            self.update_outcome_label.setText('The confirmed password does not match!')
         elif calculate_strength(updated_password) <= 2:
             #Informs the user their password is not strong enough
-            self.outcome_label.setText('Ensure you enter a strong password!')
+            self.update_outcome_label.setText('Ensure you enter a strong password!')
         elif database.verify_application(entered_application):
             #Updates the password if the application matches an existing application in the database
             database.update_password(entered_application, updated_password, calculate_strength(updated_password))

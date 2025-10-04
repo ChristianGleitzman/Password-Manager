@@ -22,7 +22,7 @@ The program will prompt you to set a master password which will be used to encry
 
 ## Improvements
 
-A possible improvement that could be made, which can be previewed in the registration process, is to have a master password hint. This password hint can then be sent to the email address entered by the user if they forget their master password.
+A possible improvement that could be made, which can be previewed in the registration process, is to have a master password hint. This password hint can then be sent to the email address entered by the user if they forget their master password. A possible extra security improvement would involve adding a session timeout due to inactivity where, say after 5 minutes, the user is required to log back into the application.
 
 ## Disclaimer
 
